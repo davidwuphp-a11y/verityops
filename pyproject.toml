@@ -1,0 +1,22 @@
+[build-system]
+requires = ["setuptools>=77"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "verityops"
+version = "0.1.0"
+description = "Offline acceptance tests for the business outcome of a simulated refund"
+readme = "README.md"
+requires-python = ">=3.11"
+license = "Apache-2.0"
+license-files = ["LICENSE"]
+dependencies = []
+
+[project.scripts]
+verityops = "verityops.run:main"
+
+[tool.setuptools]
+packages = ["verityops", "verityops.fixture"]
+
+[tool.setuptools.package-data]
+verityops = ["scenarios.json"]

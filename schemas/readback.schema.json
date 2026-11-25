@@ -1,0 +1,159 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "readback",
+  "oneOf": [
+    {
+      "type": "object",
+      "required": [
+        "schema",
+        "order",
+        "ticket",
+        "ledger",
+        "target_refund_count",
+        "other_refund_count"
+      ],
+      "properties": {
+        "schema": {
+          "const": "single-refund/2"
+        },
+        "order": {
+          "type": "object",
+          "required": [
+            "order_id",
+            "status",
+            "paid",
+            "approved",
+            "permitted",
+            "clock",
+            "deadline"
+          ],
+          "properties": {
+            "order_id": {
+              "const": "order-1"
+            },
+            "status": {
+              "enum": [
+                "paid",
+                "refunded"
+              ]
+            },
+            "paid": {
+              "type": "integer"
+            },
+            "approved": {
+              "enum": [
+                0,
+                1
+              ]
+            },
+            "permitted": {
+              "enum": [
+                0,
+                1
+              ]
+            },
+            "clock": {
+              "type": "integer"
+            },
+            "deadline": {
+              "type": "integer"
+            }
+          }
+        },
+        "ticket": {
+          "type": "object",
+          "required": [
+            "order_ref",
+            "status"
+          ],
+          "properties": {
+            "order_ref": {
+              "const": "order-1"
+            },
+            "status": {
+              "enum": [
+                "open",
+                "closed"
+              ]
+            }
+          }
+        },
+        "ledger": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "required": [
+              "order_id",
+              "id",
+              "request_key",
+              "amount",
+              "actor",
+              "approved",
+              "permitted",
+              "status",
+              "clock",
+              "deadline"
+            ],
+            "properties": {
+              "order_id": {
+                "const": "order-1"
+              },
+              "id": {
+                "type": "integer"
+              },
+              "request_key": {
+                "type": "string"
+              },
+              "amount": {
+                "type": "integer"
+              },
+              "actor": {
+                "type": "string"
+              },
+              "approved": {
+                "enum": [
+                  0,
+                  1
+                ]
+              },
+              "permitted": {
+                "enum": [
+                  0,
+                  1
+                ]
+              },
+              "status": {
+                "type": "string"
+              },
+              "clock": {
+                "type": "integer"
+              },
+              "deadline": {
+                "type": "integer"
+              }
+            }
+          }
+        },
+        "target_refund_count": {
+          "type": "integer",
+          "minimum": 0
+        },
+        "other_refund_count": {
+          "type": "integer",
+          "minimum": 0
+        }
+      }
+    },
+    {
+      "type": "object",
+      "required": [
+        "unavailable"
+      ],
+      "properties": {
+        "unavailable": {
+          "type": "string"
+        }
+      }
+    }
+  ]
+}

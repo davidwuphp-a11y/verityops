@@ -1,0 +1,79 @@
+[
+  {
+    "id": "complete",
+    "stimulus": "normal",
+    "release": "reference",
+    "disposition": "refund",
+    "gold": "PASS"
+  },
+  {
+    "id": "denied",
+    "stimulus": "unapproved",
+    "release": "reference",
+    "disposition": "hold",
+    "gold": "PASS"
+  },
+  {
+    "id": "legitimate_redelivery",
+    "stimulus": "redelivery",
+    "release": "reference",
+    "disposition": "refund",
+    "gold": "PASS"
+  },
+  {
+    "id": "withdrawal_handled",
+    "stimulus": "withdraw_before_commit",
+    "release": "reference",
+    "disposition": "hold",
+    "gold": "PASS"
+  },
+  {
+    "id": "silent_noop",
+    "stimulus": "normal",
+    "release": "ack_only",
+    "disposition": "refund",
+    "gold": "FAIL"
+  },
+  {
+    "id": "short_refund",
+    "stimulus": "normal",
+    "release": "short_post",
+    "disposition": "refund",
+    "gold": "FAIL"
+  },
+  {
+    "id": "double_post",
+    "stimulus": "redelivery",
+    "release": "unstable_retry",
+    "disposition": "refund",
+    "gold": "FAIL"
+  },
+  {
+    "id": "open_ticket",
+    "stimulus": "normal",
+    "release": "open_case",
+    "disposition": "refund",
+    "gold": "FAIL"
+  },
+  {
+    "id": "revoked",
+    "stimulus": "withdraw_before_commit",
+    "release": "stale_policy",
+    "disposition": "hold",
+    "gold": "FAIL"
+  },
+  {
+    "id": "midway_error",
+    "stimulus": "normal",
+    "release": "sync_error",
+    "disposition": "refund",
+    "gold": "FAIL"
+  },
+  {
+    "id": "missing_readback",
+    "stimulus": "blind_ledger",
+    "release": "reference",
+    "disposition": "refund",
+    "gold": "INCONCLUSIVE"
+  }
+]

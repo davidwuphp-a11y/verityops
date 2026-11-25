@@ -1,0 +1,236 @@
+{
+  "name": "verityops",
+  "version": "0.1.0",
+  "license": "Apache-2.0",
+  "scope": "Synthetic single-order refund acceptance",
+  "baseline_manifest_sha256": "170306b9fbc2c223108154cbdeaa43dfbe1d5e9e825ba7ccf9f16f203949434d",
+  "verification": "test-results.json",
+  "manifest_coverage": "Payload files. SHA256SUMS.txt also covers this manifest and omits itself.",
+  "files": [
+    {
+      "path": ".gitattributes",
+      "role": "repository configuration",
+      "sha256": "8b9b0896f63ca3d8aa4cda622f0cf7a0989d5053646d4c2bf19db79759ac0d6f"
+    },
+    {
+      "path": ".gitignore",
+      "role": "repository configuration",
+      "sha256": "5aacbdee8e7043a8456e061806388c6c5a95d7dae35388caa5ed78b59ecc8a81"
+    },
+    {
+      "path": "ARCHITECTURE.md",
+      "role": "documentation",
+      "sha256": "a36b6e18674ec4230d65c9b478e7f42285f13a7bf938510dfda54c7d5b88f185"
+    },
+    {
+      "path": "CHANGELOG.md",
+      "role": "documentation",
+      "sha256": "862015ff693b7097a53a5f86bc07a7d58e6c2816edd04b09079761026d63e34e"
+    },
+    {
+      "path": "CONTRIBUTING.md",
+      "role": "documentation",
+      "sha256": "984e3efe69c49df068413276659f28dc40fdf65b529053558f3c805ec7707517"
+    },
+    {
+      "path": "DEPENDENCIES.md",
+      "role": "documentation",
+      "sha256": "9d5fee988987b5699c45b1291e00c7a706a884db70ceafc436fddd44b3b5897c"
+    },
+    {
+      "path": "INSTALLATION.md",
+      "role": "documentation",
+      "sha256": "f730043015316bb1230f5924a2c3139057548f12c8a03ca1f54ed3c168182b10"
+    },
+    {
+      "path": "LICENSE",
+      "role": "license",
+      "sha256": "cfc7749b96f63bd31c3c42b5c471bf756814053e847c10f3eb003417bc523d30"
+    },
+    {
+      "path": "LIMITATIONS.md",
+      "role": "documentation",
+      "sha256": "780667535b71a0fc1c3a37879ca36e91f25f1508313deffe0252cb651ed001e2"
+    },
+    {
+      "path": "QUICKSTART.md",
+      "role": "documentation",
+      "sha256": "52a4a56cedeff50a773ceab222d452d15b8b1a1d46e7c59a2973fe2e7da1aa62"
+    },
+    {
+      "path": "READBACK_PREFLIGHT.md",
+      "role": "documentation",
+      "sha256": "59ee462ecdabc9c45125d47205d593f96acee7044ccd32f0d02ce1d6eda192fd"
+    },
+    {
+      "path": "README.md",
+      "role": "documentation",
+      "sha256": "009f8aac883b783a2e10fac2a1519f338fdbe4c1f708006a198f171ff8848668"
+    },
+    {
+      "path": "ROADMAP.md",
+      "role": "documentation",
+      "sha256": "540945e85823a4e14f01d75c74255728c69e500de7543fd8743ef722f748a4db"
+    },
+    {
+      "path": "SECURITY.md",
+      "role": "documentation",
+      "sha256": "75326ed032a543be27b2474eec48e60cc45b1d12af08d89eb791bb1c27c29ba1"
+    },
+    {
+      "path": "TECHNICAL_DESIGN.md",
+      "role": "documentation",
+      "sha256": "a7fe268b4becfa83b0b9853188219d8d6e12c31f9f9d8ef25f12bd4198d0ee2b"
+    },
+    {
+      "path": "TESTING.md",
+      "role": "documentation",
+      "sha256": "15639cbb29e9fc24218da98749370922785bfa50d0103ad1feb0c3968a8e090a"
+    },
+    {
+      "path": "examples/blind_ledger.json",
+      "role": "regression example",
+      "sha256": "337920548c3fd5565b77ff8b2147376680c40ad6eb8e075697b1a0449f3d4107"
+    },
+    {
+      "path": "examples/open_ticket.json",
+      "role": "regression example",
+      "sha256": "deba81b6b7e8df5846dec2937f5494dc79225d60a69a5812e57a9b56fe180bac"
+    },
+    {
+      "path": "legacy_tests/src/__init__.py",
+      "role": "legacy test or fixture",
+      "sha256": "01ba4719c80b6fe911b091a7c05124b64eeece964e09c058ef8f9805daca546b"
+    },
+    {
+      "path": "legacy_tests/src/campaign.py",
+      "role": "legacy test or fixture",
+      "sha256": "6d3e337539c3ec8a8954c7911debb8bccfe7e20a620225ce06212d57d24dab08"
+    },
+    {
+      "path": "legacy_tests/src/world.py",
+      "role": "legacy test or fixture",
+      "sha256": "70dbf1634f184a3931bce5c3e02f34ec71d0ccffba8fdfb1f3459995af85ffe8"
+    },
+    {
+      "path": "legacy_tests/test_campaign.py",
+      "role": "legacy test or fixture",
+      "sha256": "beb7d1964753781058c72ee832f786384a39c2b984048aa692787382dc0baad9"
+    },
+    {
+      "path": "legacy_tests/test_reference.py",
+      "role": "legacy test or fixture",
+      "sha256": "4e8613a6474c3ead4336a1f7e86c2db07be294e755dac57ac0fd309bc5c0248c"
+    },
+    {
+      "path": "legacy_tests/test_world.py",
+      "role": "legacy test or fixture",
+      "sha256": "72cf5757a572fa0e0edbd7bdf2a8df4a0b243a6165fa301499a6ce4dacf30d15"
+    },
+    {
+      "path": "pyproject.toml",
+      "role": "repository configuration",
+      "sha256": "f0ba57304bd4a5347f7384edaa9a4489045a0dc606645cae45875ca3382aa5e2"
+    },
+    {
+      "path": "schemas/readback.schema.json",
+      "role": "schema",
+      "sha256": "fd62b10217db81a9ddd09f794c279f86626afd532abb53550fd1fd43f9b0a969"
+    },
+    {
+      "path": "schemas/regression.schema.json",
+      "role": "schema",
+      "sha256": "0f3c3a253d80df66640b845f628ceb7e08079920dc0a57479bb052dbe6199d07"
+    },
+    {
+      "path": "schemas/resource.sql",
+      "role": "schema",
+      "sha256": "0a8812379528ce3b70858bbbe952d80d9aacd3a2652cb5277956a08e631ad71c"
+    },
+    {
+      "path": "schemas/scenarios.schema.json",
+      "role": "schema",
+      "sha256": "eff37d764a61607dc9b313507316c52df5dd94ea8f592d788c23b5acc2934a75"
+    },
+    {
+      "path": "test-results.json",
+      "role": "verification",
+      "sha256": "9cb0ea306157966afd3382f0464af551515b6edb81276ca55283c5dace82101f"
+    },
+    {
+      "path": "test_readback_completeness.py",
+      "role": "test",
+      "sha256": "fda533d6d1c5be262ea24b46de8b4afcaac94448a67a2f756c57665f4ff93d7d"
+    },
+    {
+      "path": "tests/__init__.py",
+      "role": "test",
+      "sha256": "21fcacc71c2046de3bee3ae3929972110ccb2de64aab753260f851febe5929cb"
+    },
+    {
+      "path": "tests/test_outcome.py",
+      "role": "test",
+      "sha256": "942db2185ef80343497030905507bf1c23e473c15ead44ef327b889f1d60f187"
+    },
+    {
+      "path": "tests/test_ownership.py",
+      "role": "test",
+      "sha256": "158d7d853e80d798c6d52174b73d65e2204c5f94eef495c0edc5ce4fd875ffa0"
+    },
+    {
+      "path": "verify_manifest.py",
+      "role": "verification",
+      "sha256": "897a97a5e886bdf3cb6f6ebd3653c1c2d7a201b72387e1206496a321f94db96e"
+    },
+    {
+      "path": "verityops/__init__.py",
+      "role": "application or fixture",
+      "sha256": "0bc225ea23a76f2ae5ddcafa8ed3d503b6e98086899e32b69fcbf399568e7801"
+    },
+    {
+      "path": "verityops/__main__.py",
+      "role": "application or fixture",
+      "sha256": "e1db44950e96e96cdf38c5aa2b9a523d1d492b58577b8c3edb4dc0aedc40bdd2"
+    },
+    {
+      "path": "verityops/baselines.py",
+      "role": "application or fixture",
+      "sha256": "55420fa609f2eb81490ea3e0e75bd14cb03947374bfdf23a871be9cf0e085a9f"
+    },
+    {
+      "path": "verityops/contract.py",
+      "role": "application or fixture",
+      "sha256": "74c28775d1feba2be8248c75d88fe220b56420153958ea833f706c8e6c6c242c"
+    },
+    {
+      "path": "verityops/fixture/__init__.py",
+      "role": "application or fixture",
+      "sha256": "8ffe2bdeb0ffbfd6dfd6928ef9d310fa4b5ad9acac5dd23467ba83caf097582c"
+    },
+    {
+      "path": "verityops/fixture/world.py",
+      "role": "application or fixture",
+      "sha256": "54da79e4d5295965eeb6f836fe298574cf6dd9e30f877e6c3b29e1a4c44fde32"
+    },
+    {
+      "path": "verityops/observer.py",
+      "role": "application or fixture",
+      "sha256": "2417bc5bc719966f05d90fbbfeeba9ed00cd33896a4638118fc03044a70880a5"
+    },
+    {
+      "path": "verityops/run.py",
+      "role": "application or fixture",
+      "sha256": "91dd3f73650b6b255027abd39c0c51e8a55eb3966252cb5959ae8d69f64d0850"
+    },
+    {
+      "path": "verityops/sandbox.py",
+      "role": "application or fixture",
+      "sha256": "6a2541ddd750bf636ddfb847ffa416a3170e857a0da3d228e99635ade9ca4276"
+    },
+    {
+      "path": "verityops/scenarios.json",
+      "role": "application or fixture",
+      "sha256": "883eda406aef304274d3e729338ce3f0bff84f60d6baaf204731cb874629d36a"
+    }
+  ]
+}

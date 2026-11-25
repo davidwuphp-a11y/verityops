@@ -1,0 +1,169 @@
+{
+  "scope": "Local synthetic tests only",
+  "python_sqlite": [
+    "3.12.10",
+    "3.49.1"
+  ],
+  "platform": "win32",
+  "core_tests": [
+    "test_consistent_view_count_can_hide_second_refund",
+    "test_all_fixtures",
+    "test_capture_matches_persisted_rows",
+    "test_distinct_amount_and_repeat",
+    "test_exception_after_payment_reads_resource",
+    "test_malformed_and_initial_readback",
+    "test_no_fixture_overwrite",
+    "test_reader_reports_missing_without_creating_file",
+    "test_reply_cannot_manufacture_effect",
+    "test_unavailable_before_invoking",
+    "test_completed_reply_and_foreign_post_cannot_satisfy_refund",
+    "test_foreign_refund_only",
+    "test_foreign_refund_with_target_request_key",
+    "test_hold_when_new_foreign_refund_observed",
+    "test_judge_rejects_foreign_or_missing_row_owner",
+    "test_judge_rejects_truncated_readback",
+    "test_missing_column",
+    "test_missing_column_empty_ledger_hold",
+    "test_mixed_ledger_second_bad_row",
+    "test_preexisting_foreign_rows_do_not_mask_correct_target",
+    "test_request_key_is_not_ownership",
+    "test_two_target_rows_including_different_key",
+    "test_unowned_second_row",
+    "test_unresolved_foreign_owner_same_key"
+  ],
+  "legacy_tests": [
+    "test_equal_operator_budgets",
+    "test_incomplete_observation",
+    "test_reduction",
+    "test_timing_matters",
+    "test_witnesses",
+    "test_all_single_faults",
+    "test_full_refund"
+  ],
+  "case_results": [
+    {
+      "case": "complete",
+      "verdict": "PASS",
+      "issues": []
+    },
+    {
+      "case": "denied",
+      "verdict": "PASS",
+      "issues": []
+    },
+    {
+      "case": "legitimate_redelivery",
+      "verdict": "PASS",
+      "issues": []
+    },
+    {
+      "case": "withdrawal_handled",
+      "verdict": "PASS",
+      "issues": []
+    },
+    {
+      "case": "silent_noop",
+      "verdict": "FAIL",
+      "issues": [
+        "ledger_cardinality",
+        "order_projection",
+        "case_projection"
+      ]
+    },
+    {
+      "case": "short_refund",
+      "verdict": "FAIL",
+      "issues": [
+        "incorrect_amount"
+      ]
+    },
+    {
+      "case": "double_post",
+      "verdict": "FAIL",
+      "issues": [
+        "duplicate_refund",
+        "ledger_cardinality",
+        "policy_violation"
+      ]
+    },
+    {
+      "case": "open_ticket",
+      "verdict": "FAIL",
+      "issues": [
+        "case_projection"
+      ]
+    },
+    {
+      "case": "revoked",
+      "verdict": "FAIL",
+      "issues": [
+        "ledger_cardinality",
+        "policy_violation",
+        "order_projection",
+        "case_projection"
+      ]
+    },
+    {
+      "case": "midway_error",
+      "verdict": "FAIL",
+      "issues": [
+        "order_projection",
+        "case_projection"
+      ]
+    },
+    {
+      "case": "missing_readback",
+      "verdict": "INCONCLUSIVE",
+      "issues": [
+        "missing or incompatible resource evidence"
+      ]
+    }
+  ],
+  "engine_counts": {
+    "PASS": 4,
+    "FAIL": 6,
+    "INCONCLUSIVE": 1
+  },
+  "identical_to_frozen_case_evidence": 11,
+  "exact_failure_replays": 6,
+  "passing_reference_replays": 6,
+  "single_replay": {
+    "open_ticket/open_case": {
+      "exit": 1,
+      "verdict": "FAIL"
+    },
+    "open_ticket/reference": {
+      "exit": 0,
+      "verdict": "PASS"
+    },
+    "blind_ledger/reference": {
+      "exit": 2,
+      "verdict": "INCONCLUSIVE"
+    }
+  },
+  "optional_comparison_counts": {
+    "reply": {
+      "PASS": 9,
+      "FAIL": 2
+    },
+    "trace": {
+      "PASS": 8,
+      "FAIL": 3
+    },
+    "manual": {
+      "PASS": 4,
+      "FAIL": 6,
+      "INCONCLUSIVE": 1
+    },
+    "engine": {
+      "PASS": 4,
+      "FAIL": 6,
+      "INCONCLUSIVE": 1
+    },
+    "effects_testkit": {
+      "PASS": 4,
+      "FAIL": 6,
+      "INCONCLUSIVE": 1
+    }
+  }
+}

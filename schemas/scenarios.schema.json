@@ -1,0 +1,53 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "scenarios",
+  "type": "array",
+  "items": {
+    "type": "object",
+    "required": [
+      "id",
+      "stimulus",
+      "release",
+      "disposition",
+      "gold"
+    ],
+    "properties": {
+      "id": {
+        "type": "string"
+      },
+      "stimulus": {
+        "enum": [
+          "normal",
+          "redelivery",
+          "unapproved",
+          "withdraw_before_commit",
+          "blind_ledger"
+        ]
+      },
+      "release": {
+        "enum": [
+          "reference",
+          "ack_only",
+          "short_post",
+          "unstable_retry",
+          "open_case",
+          "stale_policy",
+          "sync_error"
+        ]
+      },
+      "disposition": {
+        "enum": [
+          "refund",
+          "hold"
+        ]
+      },
+      "gold": {
+        "enum": [
+          "PASS",
+          "FAIL",
+          "INCONCLUSIVE"
+        ]
+      }
+    }
+  }
+}

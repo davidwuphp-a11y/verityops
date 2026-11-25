@@ -1,0 +1,63 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "regression",
+  "type": "object",
+  "required": [
+    "format",
+    "task",
+    "stimulus",
+    "observed_release",
+    "required_verdict"
+  ],
+  "properties": {
+    "format": {
+      "const": "refund-regression/1"
+    },
+    "task": {
+      "type": "object",
+      "required": [
+        "order",
+        "amount_cents",
+        "disposition"
+      ],
+      "properties": {
+        "order": {
+          "const": "order-1"
+        },
+        "amount_cents": {
+          "type": "integer",
+          "minimum": 1
+        },
+        "disposition": {
+          "enum": [
+            "refund",
+            "hold"
+          ]
+        }
+      }
+    },
+    "stimulus": {
+      "enum": [
+        "normal",
+        "redelivery",
+        "unapproved",
+        "withdraw_before_commit",
+        "blind_ledger"
+      ]
+    },
+    "observed_release": {
+      "enum": [
+        "reference",
+        "ack_only",
+        "short_post",
+        "unstable_retry",
+        "open_case",
+        "stale_policy",
+        "sync_error"
+      ]
+    },
+    "required_verdict": {
+      "const": "PASS"
+    }
+  }
+}
