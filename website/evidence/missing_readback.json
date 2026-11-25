@@ -1,0 +1,75 @@
+{
+  "before": {
+    "schema": "single-refund/2",
+    "order": {
+      "order_id": "order-1",
+      "status": "paid",
+      "paid": 10000,
+      "approved": 1,
+      "permitted": 1,
+      "clock": 0,
+      "deadline": 10
+    },
+    "ticket": {
+      "order_ref": "order-1",
+      "status": "open"
+    },
+    "ledger": [],
+    "target_refund_count": 0,
+    "other_refund_count": 0
+  },
+  "after": {
+    "unavailable": "refund source withheld by fixture"
+  },
+  "replies": [
+    "completed"
+  ],
+  "decision": {
+    "verdict": "INCONCLUSIVE",
+    "outcome": "unavailable_readback",
+    "issues": [
+      "missing or incompatible resource evidence"
+    ],
+    "contract": {
+      "order": "order-1",
+      "amount_cents": 10000,
+      "disposition": "refund"
+    }
+  },
+  "trace": [
+    {
+      "attempt": 1,
+      "operation": "read",
+      "request": {},
+      "response": {
+        "order_id": "order-1",
+        "status": "paid",
+        "paid": 10000,
+        "approved": 1,
+        "permitted": 1,
+        "clock": 0,
+        "deadline": 10
+      }
+    },
+    {
+      "attempt": 1,
+      "operation": "refund",
+      "request": {
+        "cents": 10000
+      },
+      "response": "ok"
+    },
+    {
+      "attempt": 1,
+      "operation": "sync",
+      "request": {},
+      "response": "ok"
+    },
+    {
+      "attempt": 1,
+      "operation": "close",
+      "request": {},
+      "response": "ok"
+    }
+  ]
+}

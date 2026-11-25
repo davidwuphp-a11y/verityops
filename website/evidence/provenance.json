@@ -1,0 +1,39 @@
+{
+  "scope": "Synthetic local evidence only. No production or customer results.",
+  "files": [
+    {
+      "file": "complete.json",
+      "sha256": "cdc4c29396a73be9e35d7e3f656d2f17a762e115394c99573347a31a56b1faf8"
+    },
+    {
+      "file": "double_post.json",
+      "sha256": "cadc90fcebaf40a768213bbb30ebb1db36605a1c685429574f291e2816910fe7"
+    },
+    {
+      "file": "missing_readback.json",
+      "sha256": "fb0d438d435ff07382b0b8a612b0bfb8342d422dc0d6218993e9436ae56a6a62"
+    },
+    {
+      "file": "duplicate-replay.json",
+      "sha256": "3947a78ed85b4af4d07b043c40710e47fb24cf1f07de405c5050bfe9b35b0489"
+    },
+    {
+      "file": "task-c-US.json",
+      "sha256": "43be9a5a4094995ec7fe8b424626bd30959f4f768e5d8ad92f2ce724b8ba76ae"
+    },
+    {
+      "file": "task-c-CN.json",
+      "sha256": "b7bbf94679a507d1b0476fbff9fa13c4ea7be73537ca98b87762c69158353ceb"
+    }
+  ],
+  "page_sources": [
+    {
+      "file": "content/en/task-c-US.md",
+      "sha256": "2491fb15b88ad7b4b3803f3e01cb607e2834b3e274c6fb8a449fe1be228237c7"
+    },
+    {
+      "file": "content/en/task-c-CN.md",
+      "sha256": "9d0a14449e758027db67354e84c90ad88e666a3f43e68fc8a35ca24d40306cd5"
+    }
+  ]
+}

@@ -1,0 +1,25 @@
+{
+  "locale": "en",
+  "nav": {
+    "index": "Home",
+    "platform": "Platform",
+    "how-it-works": "How It Works",
+    "use-cases": "Use Cases",
+    "testing": "Testing & Verification",
+    "research": "Research & Engineering",
+    "about": "About",
+    "contact": "Contact"
+  },
+  "descriptions": {
+    "index": "Independent business outcome verification and regression testing for AI agents. Explore a synthetic refund release and inspect the evidence behind each verdict.",
+    "platform": "Explore the independent readback architecture, verified business rules and evidence outputs of the VerityOps refund sandbox.",
+    "how-it-works": "Follow one refund from a signed-off business rule to a read-only resource check, a verdict and a regression replay.",
+    "use-cases": "Explore refund release acceptance and two fictional enterprise case studies built from reproducible synthetic data.",
+    "testing": "Inspect saved refund verification runs. Compare successful, duplicate and unobservable outcomes using authoritative sandbox records.",
+    "research": "Inspect the synthetic evidence, methods, assumptions and reproducibility materials behind VerityOps.",
+    "about": "Learn why VerityOps focuses on independent evidence for one consequential business action at a time.",
+    "contact": "Review the scope, evidence requirements and current contact availability for a VerityOps refund acceptance pilot."
+  },
+  "home_title": "VerityOps | AI Agent Business Outcome Verification",
+  "og_locale": "en_US"
+}

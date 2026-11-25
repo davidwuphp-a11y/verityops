@@ -1,0 +1,1073 @@
+{
+  "disclosure": "SYNTHETIC SIMULATION — fictional company; no customer outcomes or realized savings.",
+  "market": "US",
+  "company": "Juniper Mile Outfitters (fictional)",
+  "counts": {
+    "orders": 32000,
+    "payments": 37254,
+    "payment_events": 73364,
+    "prior_refunds": 240,
+    "tickets": 3670,
+    "injections": 581,
+    "actions": 7340,
+    "ledger": 4734,
+    "visible_ledger": 4685,
+    "snapshots": 7340,
+    "results": 14680
+  },
+  "mix": {
+    "orders_by_channel": {
+      "marketplace": 10956,
+      "outlet_app": 4691,
+      "web": 16353
+    },
+    "order_value_minor": 310006528,
+    "tickets_by_flow": {
+      "cancel": 1346,
+      "price_adjust": 621,
+      "return": 1703
+    },
+    "tickets_by_channel": {
+      "marketplace": 1572,
+      "outlet_app": 404,
+      "web": 1694
+    },
+    "evidence": {
+      "late_watermark": 80,
+      "ledger_page": 49,
+      "ledger_substitution": 28,
+      "none": 3438,
+      "order_feed": 44,
+      "ticket_feed": 31
+    },
+    "decisions": {
+      "DENY": 1565,
+      "PAY": 1967,
+      "VOID": 138
+    },
+    "candidate_postings": 2429,
+    "multi_fault_cases": 34
+  },
+  "metrics": {
+    "baseline": [
+      {
+        "code": "ownership_accuracy",
+        "numerator": 2003,
+        "denominator": 2035,
+        "value": 0.9842751842751842,
+        "unit": "fraction",
+        "formula": "posted-cash tickets with every posting on the originating order / posted-cash tickets",
+        "interpretation": "A wrong original payment can coexist with a numerically correct total. Unchanged across operating models.",
+        "kind": "simulation"
+      },
+      {
+        "code": "amount_accuracy",
+        "numerator": 3373,
+        "denominator": 3670,
+        "value": 0.9190735694822888,
+        "unit": "fraction",
+        "formula": "tickets with sum of all posted amounts equal to total entitlement / all tickets, including zero due",
+        "interpretation": "Aggregate settlement accuracy includes zero-due controls. It does not establish ownership or one-time execution.",
+        "kind": "simulation"
+      },
+      {
+        "code": "duplicate_detection",
+        "numerator": 0,
+        "denominator": 60,
+        "value": 0.0,
+        "unit": "fraction",
+        "formula": "duplicate tickets explicitly diagnosed as repeated payment legs / true duplicate tickets",
+        "interpretation": "Diagnostic recall: two valid split tenders are not duplicates. Receipt errors receive no diagnostic credit.",
+        "kind": "simulation"
+      },
+      {
+        "code": "eligibility_violations",
+        "numerator": 105,
+        "denominator": 1703,
+        "value": 0.06165590135055784,
+        "unit": "fraction",
+        "formula": "zero-cash entitlements with cash posted / all zero-cash entitlements",
+        "interpretation": "Cash moved despite zero entitlement, including a cancellation that should only void authorization.",
+        "kind": "simulation"
+      },
+      {
+        "code": "false_pass",
+        "numerator": 515,
+        "denominator": 547,
+        "value": 0.9414990859232175,
+        "unit": "fraction",
+        "formula": "PASS on a truly defective candidate / all truly defective candidates (false acceptance)",
+        "interpretation": "Fraction of genuinely bad cases waved through, not the error share among all PASS labels.",
+        "kind": "simulation"
+      },
+      {
+        "code": "false_fail",
+        "numerator": 61,
+        "denominator": 3123,
+        "value": 0.019532500800512328,
+        "unit": "fraction",
+        "formula": "FAIL on a truly correct candidate / all truly correct candidates (false rejection)",
+        "interpretation": "Fraction of correct cases rejected. Unknown evidence is retained as a third outcome.",
+        "kind": "simulation"
+      },
+      {
+        "code": "inconclusive",
+        "numerator": 115,
+        "denominator": 3670,
+        "value": 0.031335149863760216,
+        "unit": "fraction",
+        "formula": "INCONCLUSIVE / all candidate decision tickets",
+        "interpretation": "Share requiring more evidence before an assurance conclusion; may conceal real defects.",
+        "kind": "simulation"
+      },
+      {
+        "code": "record_completeness",
+        "numerator": 3438,
+        "denominator": 3670,
+        "value": 0.9367847411444141,
+        "unit": "fraction",
+        "formula": "complete order, ticket, ledger partition and deadline witness / all candidate tickets (available to both)",
+        "interpretation": "Availability of all independent readbacks at cutoff, including equal-count ledger integrity; A does not consume them.",
+        "kind": "simulation"
+      },
+      {
+        "code": "injected_case_detection",
+        "numerator": 10,
+        "denominator": 547,
+        "value": 0.018281535648994516,
+        "unit": "fraction",
+        "formula": "injected candidate tickets receiving FAIL / all injected candidate tickets; generic baseline failures may coincide",
+        "interpretation": "Case-level recall on the injected population, with overlaps counted only once.",
+        "kind": "simulation"
+      },
+      {
+        "code": "regression_pass",
+        "numerator": 3484,
+        "denominator": 3670,
+        "value": 0.9493188010899183,
+        "unit": "fraction",
+        "formula": "reference PASS / ALL reference replays, including prior abstentions and clean controls",
+        "interpretation": "Coverage of the entire corrected release, including clean controls and persistent evidence outages.",
+        "kind": "simulation"
+      },
+      {
+        "code": "defect_subset_retest_pass",
+        "numerator": 515,
+        "denominator": 547,
+        "value": 0.9414990859232175,
+        "unit": "fraction",
+        "formula": "reference PASS for originally injected cases / all originally injected cases",
+        "interpretation": "Paired regression coverage within cases that were deliberately broken in the candidate.",
+        "kind": "simulation"
+      },
+      {
+        "code": "actual_pre_action_blocks",
+        "numerator": 0,
+        "denominator": 3670,
+        "value": 0.0,
+        "unit": "fraction",
+        "formula": "execution-intercepted actions / all candidate tickets (both models are read-only)",
+        "interpretation": "Zero by design: observers only read already executed simulated actions.",
+        "kind": "simulation"
+      },
+      {
+        "code": "potential_preventable_cases",
+        "numerator": 0,
+        "denominator": 245,
+        "value": 0.0,
+        "unit": "fraction",
+        "formula": "incremental FAIL with positive exposure outside baseline review / all positive-exposure tickets; future identical replay only",
+        "interpretation": "Cases a hypothetical future gate might stop incrementally. No avoided payment is observed.",
+        "kind": "counterfactual ceiling"
+      },
+      {
+        "code": "post_action_detection",
+        "numerator": 10,
+        "denominator": 547,
+        "value": 0.018281535648994516,
+        "unit": "fraction",
+        "formula": "true defects flagged after action / all truly defective tickets",
+        "interpretation": "Defective completed attempts classified FAIL, irrespective of whether that defect moved money.",
+        "kind": "simulation"
+      },
+      {
+        "code": "identified_over_refund",
+        "numerator": 0,
+        "denominator": 1,
+        "value": 0.0,
+        "unit": "USD minor/cohort",
+        "formula": "sum of on-owner amount and duplicate excess in verified FAIL cases / one cohort; baseline ACK cannot attribute excess",
+        "interpretation": "Gross on-owner excess observable in failed cases, expressed in integer minor units, not recovered funds.",
+        "kind": "simulation"
+      },
+      {
+        "code": "investigation_time",
+        "numerator": 6475,
+        "denominator": 362,
+        "value": 17.886740331491712,
+        "unit": "minutes/review",
+        "formula": "sum of modeled review minutes / queued reviews",
+        "interpretation": "Modeled effort averaged over reviews only. No customer handling time was measured.",
+        "kind": "assumption"
+      },
+      {
+        "code": "total_investigation_minutes",
+        "numerator": 6475,
+        "denominator": 1,
+        "value": 6475.0,
+        "unit": "minutes/cohort",
+        "formula": "sum of modeled review minutes / one cohort",
+        "interpretation": "Whole-cohort review workload in minutes, including zero minutes for unqueued tickets.",
+        "kind": "assumption"
+      },
+      {
+        "code": "manual_review_workload",
+        "numerator": 362,
+        "denominator": 3670,
+        "value": 0.09863760217983651,
+        "unit": "fraction",
+        "formula": "tickets in operating model queue / all candidate decisions",
+        "interpretation": "Operating queue share; B preserves existing reviews and adds verification exceptions.",
+        "kind": "modeled policy"
+      },
+      {
+        "code": "gross_operational_exposure",
+        "numerator": 894879,
+        "denominator": 1,
+        "value": 894879.0,
+        "unit": "USD minor/cohort",
+        "formula": "sum of four mutually exclusive positive posting excess buckets / one cohort",
+        "interpretation": "Physically simulated excessive settlement before recovery, identical in A and B.",
+        "kind": "simulation"
+      },
+      {
+        "code": "verification_cost",
+        "numerator": 0,
+        "denominator": 1,
+        "value": 0.0,
+        "unit": "USD minor/cohort",
+        "formula": "incremental independent verification fixed allocation + overhead + variable cost / one cohort (base assumption)",
+        "interpretation": "Modeled incremental readback service cost at base rates. This excludes investigation labor and is not a customer price.",
+        "kind": "assumption"
+      }
+    ],
+    "verified": [
+      {
+        "code": "ownership_accuracy",
+        "numerator": 2003,
+        "denominator": 2035,
+        "value": 0.9842751842751842,
+        "unit": "fraction",
+        "formula": "posted-cash tickets with every posting on the originating order / posted-cash tickets",
+        "interpretation": "A wrong original payment can coexist with a numerically correct total. Unchanged across operating models.",
+        "kind": "simulation"
+      },
+      {
+        "code": "amount_accuracy",
+        "numerator": 3373,
+        "denominator": 3670,
+        "value": 0.9190735694822888,
+        "unit": "fraction",
+        "formula": "tickets with sum of all posted amounts equal to total entitlement / all tickets, including zero due",
+        "interpretation": "Aggregate settlement accuracy includes zero-due controls. It does not establish ownership or one-time execution.",
+        "kind": "simulation"
+      },
+      {
+        "code": "duplicate_detection",
+        "numerator": 53,
+        "denominator": 60,
+        "value": 0.8833333333333333,
+        "unit": "fraction",
+        "formula": "duplicate tickets explicitly diagnosed as repeated payment legs / true duplicate tickets",
+        "interpretation": "Diagnostic recall: two valid split tenders are not duplicates. Receipt errors receive no diagnostic credit.",
+        "kind": "simulation"
+      },
+      {
+        "code": "eligibility_violations",
+        "numerator": 105,
+        "denominator": 1703,
+        "value": 0.06165590135055784,
+        "unit": "fraction",
+        "formula": "zero-cash entitlements with cash posted / all zero-cash entitlements",
+        "interpretation": "Cash moved despite zero entitlement, including a cancellation that should only void authorization.",
+        "kind": "simulation"
+      },
+      {
+        "code": "false_pass",
+        "numerator": 0,
+        "denominator": 547,
+        "value": 0.0,
+        "unit": "fraction",
+        "formula": "PASS on a truly defective candidate / all truly defective candidates (false acceptance)",
+        "interpretation": "Fraction of genuinely bad cases waved through, not the error share among all PASS labels.",
+        "kind": "simulation"
+      },
+      {
+        "code": "false_fail",
+        "numerator": 0,
+        "denominator": 3123,
+        "value": 0.0,
+        "unit": "fraction",
+        "formula": "FAIL on a truly correct candidate / all truly correct candidates (false rejection)",
+        "interpretation": "Fraction of correct cases rejected. Unknown evidence is retained as a third outcome.",
+        "kind": "simulation"
+      },
+      {
+        "code": "inconclusive",
+        "numerator": 232,
+        "denominator": 3670,
+        "value": 0.06321525885558583,
+        "unit": "fraction",
+        "formula": "INCONCLUSIVE / all candidate decision tickets",
+        "interpretation": "Share requiring more evidence before an assurance conclusion; may conceal real defects.",
+        "kind": "simulation"
+      },
+      {
+        "code": "record_completeness",
+        "numerator": 3438,
+        "denominator": 3670,
+        "value": 0.9367847411444141,
+        "unit": "fraction",
+        "formula": "complete order, ticket, ledger partition and deadline witness / all candidate tickets (available to both)",
+        "interpretation": "Availability of all independent readbacks at cutoff, including equal-count ledger integrity; A does not consume them.",
+        "kind": "simulation"
+      },
+      {
+        "code": "injected_case_detection",
+        "numerator": 511,
+        "denominator": 547,
+        "value": 0.9341864716636198,
+        "unit": "fraction",
+        "formula": "injected candidate tickets receiving FAIL / all injected candidate tickets; generic baseline failures may coincide",
+        "interpretation": "Case-level recall on the injected population, with overlaps counted only once.",
+        "kind": "simulation"
+      },
+      {
+        "code": "regression_pass",
+        "numerator": 3438,
+        "denominator": 3670,
+        "value": 0.9367847411444141,
+        "unit": "fraction",
+        "formula": "reference PASS / ALL reference replays, including prior abstentions and clean controls",
+        "interpretation": "Coverage of the entire corrected release, including clean controls and persistent evidence outages.",
+        "kind": "simulation"
+      },
+      {
+        "code": "defect_subset_retest_pass",
+        "numerator": 511,
+        "denominator": 547,
+        "value": 0.9341864716636198,
+        "unit": "fraction",
+        "formula": "reference PASS for originally injected cases / all originally injected cases",
+        "interpretation": "Paired regression coverage within cases that were deliberately broken in the candidate.",
+        "kind": "simulation"
+      },
+      {
+        "code": "actual_pre_action_blocks",
+        "numerator": 0,
+        "denominator": 3670,
+        "value": 0.0,
+        "unit": "fraction",
+        "formula": "execution-intercepted actions / all candidate tickets (both models are read-only)",
+        "interpretation": "Zero by design: observers only read already executed simulated actions.",
+        "kind": "simulation"
+      },
+      {
+        "code": "potential_preventable_cases",
+        "numerator": 197,
+        "denominator": 245,
+        "value": 0.8040816326530612,
+        "unit": "fraction",
+        "formula": "incremental FAIL with positive exposure outside baseline review / all positive-exposure tickets; future identical replay only",
+        "interpretation": "Cases a hypothetical future gate might stop incrementally. No avoided payment is observed.",
+        "kind": "counterfactual ceiling"
+      },
+      {
+        "code": "post_action_detection",
+        "numerator": 511,
+        "denominator": 547,
+        "value": 0.9341864716636198,
+        "unit": "fraction",
+        "formula": "true defects flagged after action / all truly defective tickets",
+        "interpretation": "Defective completed attempts classified FAIL, irrespective of whether that defect moved money.",
+        "kind": "simulation"
+      },
+      {
+        "code": "identified_over_refund",
+        "numerator": 470424,
+        "denominator": 1,
+        "value": 470424.0,
+        "unit": "USD minor/cohort",
+        "formula": "sum of on-owner amount and duplicate excess in verified FAIL cases / one cohort; baseline ACK cannot attribute excess",
+        "interpretation": "Gross on-owner excess observable in failed cases, expressed in integer minor units, not recovered funds.",
+        "kind": "simulation"
+      },
+      {
+        "code": "investigation_time",
+        "numerator": 11847,
+        "denominator": 1032,
+        "value": 11.479651162790697,
+        "unit": "minutes/review",
+        "formula": "sum of modeled review minutes / queued reviews",
+        "interpretation": "Modeled effort averaged over reviews only. No customer handling time was measured.",
+        "kind": "assumption"
+      },
+      {
+        "code": "total_investigation_minutes",
+        "numerator": 11847,
+        "denominator": 1,
+        "value": 11847.0,
+        "unit": "minutes/cohort",
+        "formula": "sum of modeled review minutes / one cohort",
+        "interpretation": "Whole-cohort review workload in minutes, including zero minutes for unqueued tickets.",
+        "kind": "assumption"
+      },
+      {
+        "code": "manual_review_workload",
+        "numerator": 1032,
+        "denominator": 3670,
+        "value": 0.28119891008174386,
+        "unit": "fraction",
+        "formula": "tickets in operating model queue / all candidate decisions",
+        "interpretation": "Operating queue share; B preserves existing reviews and adds verification exceptions.",
+        "kind": "modeled policy"
+      },
+      {
+        "code": "gross_operational_exposure",
+        "numerator": 894879,
+        "denominator": 1,
+        "value": 894879.0,
+        "unit": "USD minor/cohort",
+        "formula": "sum of four mutually exclusive positive posting excess buckets / one cohort",
+        "interpretation": "Physically simulated excessive settlement before recovery, identical in A and B.",
+        "kind": "simulation"
+      },
+      {
+        "code": "verification_cost",
+        "numerator": 77010,
+        "denominator": 1,
+        "value": 77010.0,
+        "unit": "USD minor/cohort",
+        "formula": "incremental independent verification fixed allocation + overhead + variable cost / one cohort (base assumption)",
+        "interpretation": "Modeled incremental readback service cost at base rates. This excludes investigation labor and is not a customer price.",
+        "kind": "assumption"
+      }
+    ]
+  },
+  "confusion": {
+    "candidate": {
+      "baseline": {
+        "correct": {
+          "PASS": 2969,
+          "FAIL": 61,
+          "INCONCLUSIVE": 93
+        },
+        "defective": {
+          "PASS": 515,
+          "FAIL": 10,
+          "INCONCLUSIVE": 22
+        }
+      },
+      "verified": {
+        "correct": {
+          "PASS": 2927,
+          "FAIL": 0,
+          "INCONCLUSIVE": 196
+        },
+        "defective": {
+          "PASS": 0,
+          "FAIL": 511,
+          "INCONCLUSIVE": 36
+        }
+      }
+    },
+    "reference": {
+      "baseline": {
+        "correct": {
+          "PASS": 3484,
+          "FAIL": 71,
+          "INCONCLUSIVE": 115
+        },
+        "defective": {
+          "PASS": 0,
+          "FAIL": 0,
+          "INCONCLUSIVE": 0
+        }
+      },
+      "verified": {
+        "correct": {
+          "PASS": 3438,
+          "FAIL": 0,
+          "INCONCLUSIVE": 232
+        },
+        "defective": {
+          "PASS": 0,
+          "FAIL": 0,
+          "INCONCLUSIVE": 0
+        }
+      }
+    }
+  },
+  "faults": [
+    {
+      "fault": "duplicate",
+      "injected": 60,
+      "overlap": 9,
+      "baseline_fail": 0,
+      "verified_fail": 53,
+      "verified_inconclusive": 7
+    },
+    {
+      "fault": "no_post",
+      "injected": 37,
+      "overlap": 1,
+      "baseline_fail": 1,
+      "verified_fail": 34,
+      "verified_inconclusive": 3
+    },
+    {
+      "fault": "order_stale",
+      "injected": 123,
+      "overlap": 19,
+      "baseline_fail": 2,
+      "verified_fail": 119,
+      "verified_inconclusive": 4
+    },
+    {
+      "fault": "over",
+      "injected": 52,
+      "overlap": 6,
+      "baseline_fail": 1,
+      "verified_fail": 49,
+      "verified_inconclusive": 3
+    },
+    {
+      "fault": "ticket_open",
+      "injected": 126,
+      "overlap": 14,
+      "baseline_fail": 2,
+      "verified_fail": 118,
+      "verified_inconclusive": 8
+    },
+    {
+      "fault": "unauthorized",
+      "injected": 105,
+      "overlap": 9,
+      "baseline_fail": 3,
+      "verified_fail": 100,
+      "verified_inconclusive": 5
+    },
+    {
+      "fault": "under",
+      "injected": 46,
+      "overlap": 5,
+      "baseline_fail": 1,
+      "verified_fail": 43,
+      "verified_inconclusive": 3
+    },
+    {
+      "fault": "wrong_owner",
+      "injected": 32,
+      "overlap": 5,
+      "baseline_fail": 0,
+      "verified_fail": 27,
+      "verified_inconclusive": 5
+    }
+  ],
+  "finance": {
+    "currency": "USD",
+    "exposure_minor": {
+      "ownership_excess": 244004,
+      "duplicate_excess": 439818,
+      "unqualified_excess": 142512,
+      "amount_excess": 68545
+    },
+    "scenarios": [
+      {
+        "scenario": "conservative",
+        "parameters": {
+          "recurrence": 0.3,
+          "adoption": 0.35,
+          "irreversible": 0.3,
+          "labor_factor": 0.8,
+          "cost_factor": 1.4
+        },
+        "incremental_eligible_cases": 197,
+        "potential_repeat_exposure": 7302.63,
+        "discounted_exposure_opportunity": 230.03,
+        "labor_A": 3626.0,
+        "labor_B": 6634.32,
+        "verification_cost": 1078.14,
+        "operating_cost_A": 3626.0,
+        "operating_cost_B": 7712.46,
+        "net_benefit_estimate": -3856.43
+      },
+      {
+        "scenario": "base",
+        "parameters": {
+          "recurrence": 0.65,
+          "adoption": 0.65,
+          "irreversible": 0.55,
+          "labor_factor": 1,
+          "cost_factor": 1
+        },
+        "incremental_eligible_cases": 197,
+        "potential_repeat_exposure": 7302.63,
+        "discounted_exposure_opportunity": 1696.95,
+        "labor_A": 4532.5,
+        "labor_B": 8292.9,
+        "verification_cost": 770.1,
+        "operating_cost_A": 4532.5,
+        "operating_cost_B": 9063.0,
+        "net_benefit_estimate": -2833.55
+      },
+      {
+        "scenario": "optimistic",
+        "parameters": {
+          "recurrence": 1,
+          "adoption": 0.9,
+          "irreversible": 0.8,
+          "labor_factor": 1.2,
+          "cost_factor": 0.8
+        },
+        "incremental_eligible_cases": 197,
+        "potential_repeat_exposure": 7302.63,
+        "discounted_exposure_opportunity": 5257.89,
+        "labor_A": 5439.0,
+        "labor_B": 9951.48,
+        "verification_cost": 616.08,
+        "operating_cost_A": 5439.0,
+        "operating_cost_B": 10567.56,
+        "net_benefit_estimate": 129.33
+      }
+    ],
+    "realized_savings": null
+  },
+  "examples": [
+    {
+      "label": "wrong owner; nominal total correct",
+      "case": {
+        "version": "candidate",
+        "ticket": 40,
+        "truth_bad": 1,
+        "ownership_wrong": 1,
+        "amount_wrong": 0,
+        "duplicate": 0,
+        "ineligible_cash": 0,
+        "state_wrong": 0,
+        "expected_cash": 6732,
+        "posted_cash": 6732,
+        "ownership_excess": 6732,
+        "duplicate_excess": 0,
+        "unqualified_excess": 0,
+        "amount_excess": 0,
+        "flow": "cancel",
+        "order_id": 441,
+        "opened": 1770125378,
+        "deadline": 1770557378,
+        "channel": "marketplace",
+        "outage": "none",
+        "ack_state": "ok",
+        "baseline": "PASS",
+        "verified": "FAIL",
+        "reason": "settled payment-to-amount map",
+        "legs": 1,
+        "injection_count": 1,
+        "instruments": 1,
+        "exposure": 6732,
+        "baseline_review": true,
+        "verified_review": true,
+        "baseline_minutes": 14,
+        "verified_minutes": 7
+      },
+      "expected": [
+        {
+          "payment_id": 4410,
+          "amount": 6732
+        }
+      ],
+      "actual": [
+        {
+          "txn": "TX0000040-0",
+          "payment_id": 4400,
+          "amount": 6732,
+          "request_key": "R40-0"
+        }
+      ],
+      "states": [
+        {
+          "version": "candidate",
+          "order_state": "REFUNDED",
+          "ticket_state": "CLOSED",
+          "source_rows": 1,
+          "observed_rows": 1,
+          "watermark_ok": 1
+        },
+        {
+          "version": "reference",
+          "order_state": "REFUNDED",
+          "ticket_state": "CLOSED",
+          "source_rows": 1,
+          "observed_rows": 1,
+          "watermark_ok": 1
+        }
+      ],
+      "reference": "PASS"
+    },
+    {
+      "label": "duplicate posting",
+      "case": {
+        "version": "candidate",
+        "ticket": 121,
+        "truth_bad": 1,
+        "ownership_wrong": 0,
+        "amount_wrong": 1,
+        "duplicate": 1,
+        "ineligible_cash": 0,
+        "state_wrong": 0,
+        "expected_cash": 14023,
+        "posted_cash": 28046,
+        "ownership_excess": 0,
+        "duplicate_excess": 14023,
+        "unqualified_excess": 0,
+        "amount_excess": 0,
+        "flow": "cancel",
+        "order_id": 1306,
+        "opened": 1770178577,
+        "deadline": 1770610577,
+        "channel": "marketplace",
+        "outage": "none",
+        "ack_state": "ok",
+        "baseline": "PASS",
+        "verified": "FAIL",
+        "reason": "repeat original payment leg; settled payment-to-amount map",
+        "legs": 1,
+        "injection_count": 1,
+        "instruments": 1,
+        "exposure": 14023,
+        "baseline_review": false,
+        "verified_review": true,
+        "baseline_minutes": 0,
+        "verified_minutes": 7
+      },
+      "expected": [
+        {
+          "payment_id": 13060,
+          "amount": 14023
+        }
+      ],
+      "actual": [
+        {
+          "txn": "TX0000121-0",
+          "payment_id": 13060,
+          "amount": 14023,
+          "request_key": "R121-0"
+        },
+        {
+          "txn": "TX0000121-1",
+          "payment_id": 13060,
+          "amount": 14023,
+          "request_key": "R121-retry"
+        }
+      ],
+      "states": [
+        {
+          "version": "candidate",
+          "order_state": "REFUNDED",
+          "ticket_state": "CLOSED",
+          "source_rows": 2,
+          "observed_rows": 2,
+          "watermark_ok": 1
+        },
+        {
+          "version": "reference",
+          "order_state": "REFUNDED",
+          "ticket_state": "CLOSED",
+          "source_rows": 1,
+          "observed_rows": 1,
+          "watermark_ok": 1
+        }
+      ],
+      "reference": "PASS"
+    },
+    {
+      "label": "correct money; stale state",
+      "case": {
+        "version": "candidate",
+        "ticket": 27,
+        "truth_bad": 1,
+        "ownership_wrong": 0,
+        "amount_wrong": 0,
+        "duplicate": 0,
+        "ineligible_cash": 0,
+        "state_wrong": 1,
+        "expected_cash": 0,
+        "posted_cash": 0,
+        "ownership_excess": 0,
+        "duplicate_excess": 0,
+        "unqualified_excess": 0,
+        "amount_excess": 0,
+        "flow": "return",
+        "order_id": 284,
+        "opened": 1773405588,
+        "deadline": 1773837588,
+        "channel": "web",
+        "outage": "none",
+        "ack_state": "ok",
+        "baseline": "PASS",
+        "verified": "FAIL",
+        "reason": "order state",
+        "legs": 0,
+        "injection_count": 1,
+        "instruments": 1,
+        "exposure": 0,
+        "baseline_review": false,
+        "verified_review": true,
+        "baseline_minutes": 0,
+        "verified_minutes": 10
+      },
+      "expected": [],
+      "actual": [],
+      "states": [
+        {
+          "version": "candidate",
+          "order_state": "OPEN",
+          "ticket_state": "CLOSED",
+          "source_rows": 0,
+          "observed_rows": 0,
+          "watermark_ok": 1
+        },
+        {
+          "version": "reference",
+          "order_state": "SHIPPED",
+          "ticket_state": "CLOSED",
+          "source_rows": 0,
+          "observed_rows": 0,
+          "watermark_ok": 1
+        }
+      ],
+      "reference": "PASS"
+    },
+    {
+      "label": "defect hidden by incomplete evidence",
+      "case": {
+        "version": "candidate",
+        "ticket": 43,
+        "truth_bad": 1,
+        "ownership_wrong": 0,
+        "amount_wrong": 1,
+        "duplicate": 0,
+        "ineligible_cash": 1,
+        "state_wrong": 0,
+        "expected_cash": 0,
+        "posted_cash": 1500,
+        "ownership_excess": 0,
+        "duplicate_excess": 0,
+        "unqualified_excess": 1500,
+        "amount_excess": 0,
+        "flow": "return",
+        "order_id": 512,
+        "opened": 1772822470,
+        "deadline": 1773254470,
+        "channel": "web",
+        "outage": "ledger_page",
+        "ack_state": "ok",
+        "baseline": "PASS",
+        "verified": "INCONCLUSIVE",
+        "reason": "incomplete source coverage",
+        "legs": 0,
+        "injection_count": 1,
+        "instruments": 1,
+        "exposure": 1500,
+        "baseline_review": false,
+        "verified_review": true,
+        "baseline_minutes": 0,
+        "verified_minutes": 18
+      },
+      "expected": [],
+      "actual": [
+        {
+          "txn": "TX0000043-0",
+          "payment_id": 5120,
+          "amount": 1500,
+          "request_key": "R43-0"
+        }
+      ],
+      "states": [
+        {
+          "version": "candidate",
+          "order_state": "SHIPPED",
+          "ticket_state": "CLOSED",
+          "source_rows": 1,
+          "observed_rows": 0,
+          "watermark_ok": 1
+        },
+        {
+          "version": "reference",
+          "order_state": "SHIPPED",
+          "ticket_state": "CLOSED",
+          "source_rows": 0,
+          "observed_rows": -1,
+          "watermark_ok": 1
+        }
+      ],
+      "reference": "INCONCLUSIVE"
+    },
+    {
+      "label": "legitimate split tender",
+      "case": {
+        "version": "candidate",
+        "ticket": 18,
+        "truth_bad": 0,
+        "ownership_wrong": 0,
+        "amount_wrong": 0,
+        "duplicate": 0,
+        "ineligible_cash": 0,
+        "state_wrong": 0,
+        "expected_cash": 18997,
+        "posted_cash": 18997,
+        "ownership_excess": 0,
+        "duplicate_excess": 0,
+        "unqualified_excess": 0,
+        "amount_excess": 0,
+        "flow": "cancel",
+        "order_id": 159,
+        "opened": 1769941569,
+        "deadline": 1770373569,
+        "channel": "marketplace",
+        "outage": "none",
+        "ack_state": "ok",
+        "baseline": "PASS",
+        "verified": "PASS",
+        "reason": "all independent comparisons match",
+        "legs": 2,
+        "injection_count": 0,
+        "instruments": 2,
+        "exposure": 0,
+        "baseline_review": false,
+        "verified_review": false,
+        "baseline_minutes": 0,
+        "verified_minutes": 0
+      },
+      "expected": [
+        {
+          "payment_id": 1590,
+          "amount": 15958
+        },
+        {
+          "payment_id": 1591,
+          "amount": 3039
+        }
+      ],
+      "actual": [
+        {
+          "txn": "TX0000018-0",
+          "payment_id": 1590,
+          "amount": 15958,
+          "request_key": "R18-0"
+        },
+        {
+          "txn": "TX0000018-1",
+          "payment_id": 1591,
+          "amount": 3039,
+          "request_key": "R18-1"
+        }
+      ],
+      "states": [
+        {
+          "version": "candidate",
+          "order_state": "REFUNDED",
+          "ticket_state": "CLOSED",
+          "source_rows": 2,
+          "observed_rows": 2,
+          "watermark_ok": 1
+        },
+        {
+          "version": "reference",
+          "order_state": "REFUNDED",
+          "ticket_state": "CLOSED",
+          "source_rows": 2,
+          "observed_rows": 2,
+          "watermark_ok": 1
+        }
+      ],
+      "reference": "PASS"
+    }
+  ],
+  "policy_traces": [
+    {
+      "ticket": 34,
+      "order_id": 335,
+      "flow": "cancel",
+      "age_days": 2,
+      "shipped": 0,
+      "received": 0,
+      "channel": "web",
+      "requested": 12985,
+      "paid_basis": 12985,
+      "shipping": 0,
+      "subsidy": 0,
+      "capture_mode": "auth_only",
+      "decision": "VOID",
+      "due": 0,
+      "order_target": "VOIDED",
+      "case": "Authorization-only cancellation"
+    },
+    {
+      "ticket": 6,
+      "order_id": 48,
+      "flow": "return",
+      "age_days": 9,
+      "shipped": 1,
+      "received": 1,
+      "channel": "marketplace",
+      "requested": 3902,
+      "paid_basis": 6294,
+      "shipping": 595,
+      "subsidy": 0,
+      "capture_mode": "captured",
+      "decision": "PAY",
+      "due": 3902,
+      "order_target": "PARTIAL",
+      "case": "Accepted return with retained shipping"
+    },
+    {
+      "ticket": 77,
+      "order_id": 899,
+      "flow": "price_adjust",
+      "age_days": 14,
+      "shipped": 1,
+      "received": 0,
+      "channel": "web",
+      "requested": 515,
+      "paid_basis": 3034,
+      "shipping": 595,
+      "subsidy": 0,
+      "capture_mode": "captured",
+      "decision": "PAY",
+      "due": 515,
+      "order_target": "PARTIAL",
+      "case": "Partial adjustment after a previous refund"
+    }
+  ],
+  "settlement_by_rail": [
+    {
+      "rail": "card",
+      "postings": 1496,
+      "gross_minor": 11225850,
+      "mean_post_lag_minutes": 816.25
+    },
+    {
+      "rail": "digital_wallet",
+      "postings": 599,
+      "gross_minor": 4272433,
+      "mean_post_lag_minutes": 119.59
+    },
+    {
+      "rail": "store_credit",
+      "postings": 334,
+      "gross_minor": 617133,
+      "mean_post_lag_minutes": 124.93
+    }
+  ]
+}

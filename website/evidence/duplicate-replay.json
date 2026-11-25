@@ -1,0 +1,11 @@
+{
+  "format": "refund-regression/1",
+  "task": {
+    "order": "order-1",
+    "amount_cents": 10000,
+    "disposition": "refund"
+  },
+  "stimulus": "redelivery",
+  "observed_release": "unstable_retry",
+  "required_verdict": "PASS"
+}
